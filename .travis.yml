@@ -15,4 +15,4 @@ before_cache:
   - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
 
 script:
-  - $HOME/scripts/runTest.sh
+  - ./scripts/runTest.sh
