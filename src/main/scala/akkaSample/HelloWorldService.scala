@@ -16,16 +16,13 @@ object  HelloWorldService {
 
   implicit val itemFormat = jsonFormat1(GreetingMessage)
   val defaultPort:Int = 8080
+  val defaultInterface:String = "localhost"
+
 
   def main(args: Array[String]): Unit = {
 
-    val portNumber =
-      try {
-        if(args.length>0) { args(0).toInt } else defaultPort
-      }
-      catch {
-        case _:Throwable => defaultPort
-      }
+    val interface:String = getInterface(args)
+    val portNumber: Int = getPortNumber(args)
 
     val route =
       get {
@@ -35,10 +32,39 @@ object  HelloWorldService {
           }
       }
 
-    val bindingFuture = Http().bindAndHandle(route, "localhost", portNumber)
+    val bindingFuture = Http().bindAndHandle(route, interface, portNumber)
 
-    println(s"Server online at http://localhost:$portNumber/")
-    println("Press RETURN to stop...")
+    println(s"Server online at http://$interface:$portNumber/")
   }
 
+  private def getInterface(args: Array[String]):String = {
+    val interface = try {
+      if (args.length > 0) {
+        args(0)
+      } else {
+        defaultInterface
+      }
+    }
+    catch {
+      case _: Throwable => defaultInterface
+    }
+
+    interface
+  }
+
+  private def getPortNumber(args: Array[String]):Int = {
+    val portNumber =
+      try {
+        if (args.length > 1) {
+          args(1).toInt
+        } else {
+          val envPortNumber = sys.env("AKKA_HTTP_SAMPLE_PORT")
+          envPortNumber.toInt
+        }
+      }
+      catch {
+        case _: Throwable => defaultPort
+      }
+    portNumber
+  }
 }
