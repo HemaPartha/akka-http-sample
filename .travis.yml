@@ -9,10 +9,10 @@ cache:
   - $HOME/.sbt/cache/
   - $HOME/.sbt/boot/
   - $HOME/.sbt/launchers/
-  
+
 before_cache:
   - find $HOME/.sbt -name "*.lock" | xargs rm
   - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
 
 script:
-  - sbt clean test
+  - $HOME/scripts/runTest.sh
