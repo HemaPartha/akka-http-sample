@@ -17,9 +17,9 @@ before_cache:
 jobs:
   include:
     - stage: Unit Test
-    - script: ./scripts/runTest.sh
+      script: ./scripts/runTest.sh
     - stage: Build Jar
-    - script: ./scripts/buildFatJar.sh
+      script: ./scripts/buildFatJar.sh
     - stage: Build Container and Publish
-    - script: ./scripts/publishDockerImage.sh
+      script: ./scripts/publishDockerImage.sh
 
