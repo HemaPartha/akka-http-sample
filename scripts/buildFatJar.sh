@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sbt assembly
+sbt "set test in assembly := {}" clean assembly
