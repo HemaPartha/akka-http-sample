@@ -7,6 +7,6 @@ import org.scalatest.Matchers._
 class GreetingTest extends  FlatSpec {
 
   "Greeting" should "generate the correct Greeting instance" in {
-    Greeting.getMessage("john") should be (GreetingMessage("Hello john"))
+    Greeting.getMessage("john1") should be (GreetingMessage("Hello john1"))
   }
 }

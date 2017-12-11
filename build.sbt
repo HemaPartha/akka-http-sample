@@ -4,7 +4,6 @@ version := "1.0.0-SNAPSHOT"
 
 scalaVersion := "2.11.11"
 
-
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http" % "10.0.11",
   "com.typesafe.akka" %% "akka-http-spray-json" % "10.0.11",
