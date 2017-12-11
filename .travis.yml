@@ -14,6 +14,9 @@ before_cache:
   - find $HOME/.sbt -name "*.lock" | xargs rm
   - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
 
+env:
+  global:
+    - AKKA_CONTAINER_NAME=akka-http-sample
 jobs:
   include:
     - stage: Test, Jar, Publish
