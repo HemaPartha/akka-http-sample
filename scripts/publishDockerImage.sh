@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+BUILD_NUMBER=$1
 echo Publishing docker image.........
 echo $PACKAGE_NAME
 echo $BUILD_NUMBER
