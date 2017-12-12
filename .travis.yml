@@ -22,4 +22,5 @@ jobs:
   - stage: Test-Jar-Publish
     script:
     - "./scripts/runTestAndBuildArtifacts.sh"
+    - export BUILD_NUMBER=$TRAVIS_BUILD_NUMBER
     - "./scripts/publishDockerImage.sh"
