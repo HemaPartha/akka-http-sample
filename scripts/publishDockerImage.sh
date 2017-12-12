@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 echo Publishing docker image.........
 echo $PACKAGE_NAME
-echo $TRAVIS_BUILD_NUMBER
 echo $BUILD_NUMBER
 
 docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
