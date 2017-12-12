@@ -21,6 +21,5 @@ jobs:
   include:
   - stage: Test-Jar-Publish
     script:
-    - "./scripts/runTest.sh"
-    - "./scripts/buildFatJar.sh"
+    - "./scripts/runTestAndBuildArtifacts.sh"
     - "./scripts/publishDockerImage.sh"
