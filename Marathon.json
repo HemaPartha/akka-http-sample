@@ -1,0 +1,41 @@
+{
+  "id": "/arunkoshi-akka-sample",
+  "cmd": null,
+  "cpus": 0.2,
+  "mem": 64,
+  "disk": 0,
+  "instances": 1,
+  "constraints": [
+    [
+      "lifecycle",
+      "LIKE",
+      "spot"
+    ],
+    [
+      "app",
+      "LIKE",
+      "apps-staging"
+    ]
+  ],
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "arunkoshi/samples:akka-http-sample-goCd-8",
+      "parameters": [],
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 9090,
+          "hostPort": 0,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  },
+  "env": {},
+  "labels": {},
+  "healthChecks": []
+}
