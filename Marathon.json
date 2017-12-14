@@ -2,7 +2,7 @@
   "id": "/arunkoshi-akka-sample",
   "cmd": null,
   "cpus": 0.2,
-  "mem": 64,
+  "mem": 256,
   "disk": 0,
   "instances": 1,
   "constraints": [
@@ -26,6 +26,7 @@
       "image": "arunkoshi/samples:akka-http-sample-goCd-8",
       "parameters": [],
       "network": "BRIDGE",
+      "forcePullImage" : true,
       "portMappings": [
         {
           "containerPort": 9090,
@@ -37,5 +38,16 @@
   },
   "env": {},
   "labels": {},
-  "healthChecks": []
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 90,
+      "intervalSeconds": 90,
+      "timeoutSeconds": 30,
+      "maxConsecutiveFailures": 3,
+      "portIndex": 0,
+      "path": "/greet/Medic",
+      "protocol": "HTTP",
+      "ignoreHttp1xx": false
+    }
+  ]
 }

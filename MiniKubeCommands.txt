@@ -1,0 +1,14 @@
+--Requires Minikube Installed
+
+minikube start
+eval $(minikube docker-env)
+docker pull arunkoshi/samples:akka-http-sample-goCd-8
+kubectl run arun-akka-sample --image=arunkoshi/samples:akka-http-sample-goCd-11 --port=9090
+kubectl expose deployment arun-akka-sample --type="LoadBalancer"
+kubectl get pods 
+kubectl get services
+
+--Service is exposed on url given by following command
+minikube service arun-akka-sample --url
+
+kubectl delete deployment  arun-akka-sample
